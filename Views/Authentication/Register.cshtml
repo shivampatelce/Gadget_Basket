@@ -1,0 +1,161 @@
+﻿@model RegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-4">
+                <div class="card-header bg-dark text-white text-center py-4 rounded-top-4">
+                    <h2 class="mb-0 fw-bold">
+                        <i class="fas fa-user-plus me-2"></i>
+                        Create Account
+                    </h2>
+                    <p class="mb-0 mt-2 opacity-75">Join us today and get started</p>
+                </div>
+                    
+                <div class="card-body p-5">
+                    <form id="registrationForm" method="post" asp-controller="Authentication" asp-action="Register" novalidate>
+                        <div class="row mb-4">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <label asp-for="Firstname" class="form-label fw-semibold">
+                                    <i class="fas fa-user me-1 text-primary"></i>
+                                    First Name
+                                </label>
+                                <input type="text" class="form-control form-control-lg border-2" 
+                                       id="Firstname" asp-for="Firstname" placeholder="First Name" required>
+                                <span asp-validation-for="Firstname" class="text-danger"></span>
+                                <div class="invalid-feedback">
+                                    Please provide a valid first name.
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <label asp-for="Lastname" class="form-label fw-semibold">
+                                    <i class="fas fa-user me-1 text-primary"></i>
+                                    Last Name
+                                </label>
+                                <input type="text" class="form-control form-control-lg border-2" 
+                                       id="Lastname" asp-for="Lastname" placeholder="Last Name" required>
+                                <span asp-validation-for="Lastname" class="text-danger"></span>
+                                <div class="invalid-feedback">
+                                    Please provide a valid last name.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Email" class="form-label fw-semibold">
+                                <i class="fas fa-envelope me-1 text-primary"></i>
+                                Email Address
+                            </label>
+                            <input type="email" asp-for="Email" class="form-control form-control-lg border-2" 
+                                   id="Email" placeholder="Email Address" required>
+                            <div class="invalid-feedback">
+                                Please provide a valid email address.
+                            </div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="Password" class="form-label fw-semibold">
+                                <i class="fas fa-lock me-1 text-primary"></i>
+                                Password
+                            </label>
+                            <div class="input-group">
+                                <input type="password" class="form-control form-control-lg border-2" 
+                                       id="Password" asp-for="Password" placeholder="Enter secure password" required minlength="8">
+                                <button class="btn btn-outline-secondary border-2" type="button" id="togglePassword">
+                                    <i class="fas fa-eye" id="eyeIcon"></i>
+                                </button>
+                            </div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                            <div class="invalid-feedback">
+                                Password must be at least 8 characters long.
+                            </div>
+                            <div class="form-text">
+                                <i class="fas fa-shield-alt me-1"></i>
+                                Use 8+ characters with a mix of letters, numbers & symbols.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label asp-for="ConfirmPassword" class="form-label fw-semibold">
+                                <i class="fas fa-lock me-1 text-primary"></i>
+                                Confirm Password
+                            </label>
+                            <input type="password" class="form-control form-control-lg border-2" 
+                                   id="confirmPassword" asp-for="ConfirmPassword" placeholder="Confirm your password" required>
+                            <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+                            <div class="invalid-feedback">
+                                Passwords do not match.
+                            </div>
+                        </div>
+
+                        <div class="d-grid gap-2 mb-4">
+                            <button type="submit" class="btn btn-dark btn-lg fw-semibold py-3">
+                                <i class="fas fa-user-plus me-2"></i>
+                                Create Account
+                            </button>
+                        </div>
+
+                        <div class="text-center">
+                            <p class="text-muted mb-0">
+                                Already have an account? 
+                                <a asp-controller="Authentication" asp-action="Login" class="text-decoration-none fw-semibold">Sign in here</a>
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordField = document.getElementById('password');
+            const eyeIcon = document.getElementById('eyeIcon');
+            
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                eyeIcon.classList.remove('fa-eye');
+                eyeIcon.classList.add('fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                eyeIcon.classList.remove('fa-eye-slash');
+                eyeIcon.classList.add('fa-eye');
+            }
+        });
+
+        // Form validation
+        document.getElementById('registrationForm').addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirmPassword').value;
+            const confirmPasswordField = document.getElementById('confirmPassword');
+
+            // Check if passwords match
+            if (password !== confirmPassword) {
+                confirmPasswordField.setCustomValidity('Passwords do not match');
+                event.preventDefault();
+                event.stopPropagation();
+            } else {
+                confirmPasswordField.setCustomValidity('');
+            }
+
+            this.classList.add('was-validated');
+        });
+        
+        document.getElementById('confirmPassword').addEventListener('input', function() {
+            const password = document.getElementById('password').value;
+            const confirmPassword = this.value;
+
+            if (password !== confirmPassword) {
+                this.setCustomValidity('Passwords do not match');
+            } else {
+                this.setCustomValidity('');
+            }
+        });
+    </script>
