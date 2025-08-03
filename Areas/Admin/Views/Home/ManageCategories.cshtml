@@ -1,0 +1,136 @@
+﻿@model Gadget_Basket.Models.Category
+
+@{
+    ViewBag.Title = "Manage Categories";
+    Layout = "_Layout";
+}
+
+<div class="bg-light py-4">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col">
+                <h1 class="display-6 fw-bold text-dark mb-0">Category Management</h1>
+                <p class="text-muted mb-0">Add, view, and manage product categories</p>
+            </div>
+            <div class="col-auto">
+                <span class="badge bg-primary rounded-pill px-3 py-2">
+                    Admin Panel
+                </span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-10">
+            <div class="row g-4">
+                <div class="col-lg-5">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-primary text-white py-4">
+                            <h4 class="fw-semibold mb-0">
+                                Add New Category
+                            </h4>
+                            <small class="opacity-75">Create a new product category</small>
+                        </div>
+                        <div class="card-body p-4">
+                            <form asp-action="ManageCategories" method="post" novalidate>
+                                <div class="mb-4">
+                                    <label asp-for="CategoryName" class="form-label fw-semibold">Category Name</label>
+                                    <input asp-for="CategoryName" class="form-control form-control-lg" 
+                                           placeholder="Category" />
+                                    <span asp-validation-for="CategoryName" class="text-danger small"></span>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary btn-lg w-100 rounded-pill fw-semibold">
+                                    Add Category
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-7">
+                    <div class="card border-0 shadow-sm h-100">
+                        <div class="card-header bg-white border-0 py-4">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div>
+                                    <h4 class="fw-semibold mb-1">Existing Categories</h4>
+                                    <small class="text-muted">Manage your current categories</small>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-body p-0">
+                            @if (ViewBag.Categories != null && ((List<Category>)ViewBag.Categories).Count > 0)
+                            {
+                                @foreach (Category category in ViewBag.Categories)
+                                {
+                                    <div class="border-bottom p-4">
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex align-items-center">
+                                                <div class="bg-primary bg-opacity-10 rounded-circle me-3 d-flex align-items-center justify-content-center" 
+                                                     style="width: 40px; height: 40px;">
+                                                    <span class="text-primary fw-bold">
+                                                        @category.CategoryName.Substring(0, 1).ToUpper()
+                                                    </span>
+                                                </div>
+                                                <div>
+                                                    <h6 class="fw-semibold mb-0">@category.CategoryName</h6>
+                                                    <small class="text-muted">Category ID: @category.CategoryId</small>
+                                                </div>
+                                            </div>
+                                            <form asp-action="DeleteCategory" method="post" class="d-inline">
+                                                <input type="hidden" name="categoryId" value="@category.CategoryId" />
+                                                <button type="submit" class="btn btn-outline-danger btn-sm rounded-pill px-3">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <div class="text-center py-5">
+                                    <h5 class="text-muted mb-2">No categories found</h5>
+                                    <p class="text-muted small mb-0">Add your first category to get started</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-5">
+                <div class="col-12">
+                    <div class="card border-0 shadow-sm">
+                        <div class="card-body p-4">
+                            <div class="row g-4 text-center">
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center justify-content-center mb-2">
+                                        <h6 class="fw-semibold mb-0">Quick Tip</h6>
+                                    </div>
+                                    <small class="text-muted">Use descriptive names for better organization</small>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center justify-content-center mb-2">
+                                        <h6 class="fw-semibold mb-0">Warning</h6>
+                                    </div>
+                                    <small class="text-muted">Deleting a category will affect related products</small>
+                                </div>
+                                
+                                <div class="col-md-4">
+                                    <div class="d-flex align-items-center justify-content-center mb-2">
+                                        <h6 class="fw-semibold mb-0">Best Practice</h6>
+                                    </div>
+                                    <small class="text-muted">Keep category names concise and clear</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

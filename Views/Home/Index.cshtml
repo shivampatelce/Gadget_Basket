@@ -2,4 +2,211 @@
     ViewData["Title"] = "Home Page";
 }
 
-<h1 class="display-4">Gadget Basket</h1>
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="bg-primary bg-gradient d-flex align-items-center" style="height: 75vh;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <span class="badge bg-light text-dark mb-3 fs-6">New Arrivals</span>
+                            <h1 class="display-3 fw-bold text-white mb-4">Latest Smartphones</h1>
+                            <p class="fs-5 text-white mb-4">Discover cutting-edge technology with our premium smartphone collection. Fast performance, stunning cameras, and sleek designs.</p>
+                            <div class="d-flex gap-3 flex-wrap">
+                                <a href="#" class="btn btn-light btn-lg rounded-pill px-4">Shop Now</a>
+                                <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">Learn More</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=500&h=400&fit=crop&crop=center" 
+                                 class="img-fluid rounded shadow-lg" alt="Latest Smartphones" style="max-height: 450px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-item">
+            <div class="bg-dark bg-gradient d-flex align-items-center" style="height: 75vh;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <span class="badge bg-success mb-3 fs-6">Gaming Zone</span>
+                            <h1 class="display-3 fw-bold text-white mb-4">Gaming Laptops</h1>
+                            <p class="fs-5 text-white mb-4">Unleash your gaming potential with high-performance laptops. Superior graphics, lightning-fast processors, and immersive displays.</p>
+                            <div class="d-flex gap-3 flex-wrap">
+                                <a href="#" class="btn btn-success btn-lg rounded-pill px-4">Explore Gaming</a>
+                                <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">Compare</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="https://images.unsplash.com/photo-1525547719571-a2d4ac8945e2?w=500&h=400&fit=crop&crop=center" 
+                                 class="img-fluid rounded shadow-lg" alt="Gaming Laptops" style="max-height: 450px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="carousel-item">
+            <div class="bg-info bg-gradient d-flex align-items-center" style="height: 75vh;">
+                <div class="container">
+                    <div class="row align-items-center">
+                        <div class="col-lg-6">
+                            <span class="badge bg-warning text-dark mb-3 fs-6">Smart Living</span>
+                            <h1 class="display-3 fw-bold text-white mb-4">Smart Home Devices</h1>
+                            <p class="fs-5 text-white mb-4">Transform your home into a smart sanctuary. Voice assistants, smart speakers, and connected devices for modern living.</p>
+                            <div class="d-flex gap-3 flex-wrap">
+                                <a href="#" class="btn btn-warning btn-lg rounded-pill px-4 text-dark fw-semibold">Smart Living</a>
+                                <a href="#" class="btn btn-outline-light btn-lg rounded-pill px-4">Setup Guide</a>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 text-center">
+                            <img src="https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=500&h=400&fit=crop&crop=center" 
+                                 class="img-fluid rounded shadow-lg" alt="Smart Home Devices" style="max-height: 450px;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h1 class="display-4 fw-bold text-dark mb-3">Welcome to <span class="text-primary">Gadget Basket</span></h1>
+            <p class="lead text-muted">Your one-stop destination for cutting-edge electronics and gadgets</p>
+            <hr class="w-25 mx-auto border-primary border-3">
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow h-100 text-center">
+                    <div class="card-body p-5">
+                        <div class="bg-primary bg-opacity-10 rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center border border-primary border-2" 
+                             style="width: 100px; height: 100px;">
+                            <span class="text-primary fw-bold" style="font-size: 3rem;">📱</span>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-primary">Latest Technology</h4>
+                        <p class="text-muted">Stay ahead with the newest smartphones, tablets, and wearables from top brands worldwide.</p>
+                        <a href="#" class="btn btn-outline-primary rounded-pill mt-3">Learn More</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow h-100 text-center">
+                    <div class="card-body p-5">
+                        <div class="bg-success bg-opacity-10 rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center border border-success border-2" 
+                             style="width: 100px; height: 100px;">
+                            <span class="text-success fw-bold" style="font-size: 3rem;">🚚</span>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-success">Fast Delivery</h4>
+                        <p class="text-muted">Get your gadgets delivered quickly with our express shipping options and reliable service.</p>
+                        <a href="#" class="btn btn-outline-success rounded-pill mt-3">Track Order</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow h-100 text-center">
+                    <div class="card-body p-5">
+                        <div class="bg-warning bg-opacity-10 rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center border border-warning border-2" 
+                             style="width: 100px; height: 100px;">
+                            <span class="text-warning fw-bold" style="font-size: 3rem;">🛡️</span>
+                        </div>
+                        <h4 class="fw-bold mb-3 text-warning">Warranty Protection</h4>
+                        <p class="text-muted">Shop with confidence knowing all our products come with comprehensive warranty coverage.</p>
+                        <a href="#" class="btn btn-outline-warning rounded-pill mt-3">View Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Categories Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-dark mb-3">Shop by Category</h2>
+            <p class="lead text-muted">Browse our top categories to find the perfect gadget</p>
+            <hr class="w-25 mx-auto border-primary border-2">
+        </div>
+
+        <div class="row g-4">
+            @foreach (Category category in ViewBag.Categories)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <a asp-controller="Shop" asp-action="ProductList" asp-route-categoryName="@category.CategoryName" class="text-decoration-none">
+                        <div class="card h-100 border-0 shadow-sm">
+                            <div class="card-body text-center p-4 d-flex flex-column justify-content-center bg-primary bg-opacity-5" style="min-height: 150px;">
+                                <div class="mb-3">
+                                    <span class="bg-primary bg-opacity-10 rounded-circle d-inline-flex align-items-center justify-content-center p-3">
+                                        <span class="text-primary fw-bold fs-3">🏷️</span>
+                                    </span>
+                                </div>
+                                <h5 class="fw-bold text-dark mb-2">@category.CategoryName</h5>
+                                <small class="text-muted">Explore Collection</small>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+</section>
+
+<!-- Featured Deals Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="text-center mb-5">
+            <h2 class="display-5 fw-bold text-dark mb-3">Featured Deals</h2>
+            <p class="lead text-muted">Grab these limited-time offers with massive discounts!</p>
+            <hr class="w-25 mx-auto border-danger border-2">
+        </div>
+
+        <div class="row g-4 mb-5">
+            @foreach (var product in ViewBag.FeaturedProducts as List<Product>)
+            {
+                <div class="col-md-6 col-lg-3">
+                    <div class="card h-100 border-0 shadow">
+                        <div class="position-relative">
+                            <img src="@product.ImageURL" class="card-img-top" alt="@product.ProductName" style="height: 250px; object-fit: cover;" />
+                            <span class="position-absolute top-0 end-0 badge bg-danger m-3 fs-6 rounded-pill">Save @product.Discount%</span>
+                        </div>
+                        <div class="card-body text-center p-4">
+                            <h5 class="card-title fw-bold mb-3">@product.ProductName</h5>
+                            <div class="mb-3">
+                                <span class="text-decoration-line-through text-muted me-2">$@product.Price</span>
+                                @if (product.Discount != null)
+                                {
+                                    <span class="fw-bold text-success fs-4">$@(product.Price - Math.Round((product.Discount * product.Price) / 100, 2))</span>
+                                }
+                            </div>
+                            <div class="d-grid gap-2">
+                                <a asp-controller="Shop" asp-action="ProductDetail" asp-route-id="@product.ProductID" class="btn btn-outline-secondary btn-sm rounded-pill">Quick View</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</section>

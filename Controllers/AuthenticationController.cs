@@ -31,6 +31,18 @@ public class AuthenticationController : Controller
                 lockoutOnFailure: false);
             
             if (result.Succeeded) {
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                IList<string> roles = [];
+                if (user != null)
+                {
+                    roles = await _userManager.GetRolesAsync(user);
+                }
+                
+                if (roles.Contains("Admin"))
+                {
+                    return RedirectToAction("ManageProducts", "Home", new { area = "Admin" });
+                }
+                
                 if (!string.IsNullOrEmpty(model.ReturnUrl) &&
                     Url.IsLocalUrl(model.ReturnUrl))
                 {
@@ -60,6 +72,7 @@ public class AuthenticationController : Controller
         var result = await _userManager.CreateAsync(user,
             model.Password);
         if (result.Succeeded) {
+            await _userManager.AddToRoleAsync(user, "User");
             await _signInManager.SignInAsync(user,
                 isPersistent: false);
         } else {

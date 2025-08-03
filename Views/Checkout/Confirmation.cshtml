@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = "Order Confirmation";
+    Layout = "_Layout";
+}
+
+<div class="bg-light py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <div class="mb-4">
+                    <div class="bg-success rounded-circle mx-auto mb-4 d-flex align-items-center justify-content-center" 
+                         style="width: 80px; height: 80px;">
+                        <span class="text-white" style="font-size: 2rem; font-weight: bold;">✓</span>
+                    </div>
+                    <h1 class="display-5 fw-bold text-dark mb-3">Order Confirmed!</h1>
+                    <p class="lead text-muted">Thank you for your purchase. Your order has been successfully placed.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-5 text-center">
+                    <h4 class="fw-semibold mb-4">What would you like to do next?</h4>
+                    
+                    <div class="row g-3 justify-content-center">
+                        <div class="col-md-12 col-lg-4">
+                            <a asp-controller="Shop" asp-action="Index" class="btn btn-primary btn-lg w-100 rounded-pill fw-semibold">
+                                🛍️ Continue Shopping
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-4 pt-4 border-top">
+                        <p class="text-muted mb-0">
+                            <small>
+                                Need help? <a href="#" class="text-decoration-none">Contact our support team</a> 
+                                or visit our <a href="#" class="text-decoration-none">FAQ page</a>
+                            </small>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
